@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Coffee.Models.Order>
+
+    @{
+        ViewBag.Title = "Finished";
+    }
+
+    <h2>ActiveOrders</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Username)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.ActionLink(item.User.Username, "Details", new { id = item.ID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,66 @@
+﻿@model Coffee.Models.DrinkListStruct
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.User.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Compl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.Compl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Price)
+        </dt>
+
+        
+                @foreach (var item in Model.drinks)
+                {
+                    <tr>
+                        <
+                    <dt>
+                        @Html.DisplayNameFor(model => item.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => item.Name)
+                    </dd>
+                
+
+        <td>
+
+        <dt>
+            @Html.DisplayNameFor(model => item.Rec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Rec)
+        </dd>
+                </td>
+            </tr>
+        }
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.order.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
